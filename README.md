@@ -1,36 +1,134 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🗂️ Project Manager App
 
-## Getting Started
+A full-stack application that helps users manage projects and tasks with a clean UI and useful features like authentication, filtering, and CRUD operations.
 
-First, run the development server:
+---
+
+## 🚀 Tech Stack
+
+- **Frontend**: Next.js (App Router), TypeScript, Tailwind CSS, React Icons
+- **Backend**: Next.js API Routes, Prisma ORM
+- **Database**: MongoDB (via Prisma)
+- **Auth**: JWT-based authentication stored in cookies
+- **UI/UX**: Fully responsive, modals, icons, filters
+
+---
+
+## 📋 Features
+
+### 👤 User Authentication
+- Secure registration and login
+- JWT tokens stored in cookies
+- Middleware protected routes
+
+### 📁 Project Management
+- Create, update, delete projects
+- Filter projects by status (`active`, `completed`)
+- Search projects by title
+- View project details
+- Clicking a project shows all its tasks
+
+### ✅ Task Management
+- Tasks linked to individual projects
+- Create, update, delete tasks
+- Filter tasks by status (`todo`, `in-progress`, `done`)
+- Search tasks by title
+- Due date selection using datetime input
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1. Clone the Repository
 
 ```bash
+git clone https://github.com/ashish739293/sofrik-task-app.git
+cd sofrik-task-app
+
+2. Install Dependencies
+bash
+Copy
+Edit
+npm install
+3. Configure Environment Variables
+Create a .env file in the root folder:
+
+env
+Copy
+Edit
+DATABASE_URL="mongodb+srv://<username>:<password>@cluster.mongodb.net/project-manager?retryWrites=true&w=majority"
+JWT_SECRET="your-super-secret-key"
+Replace with your actual MongoDB credentials.
+
+4. Initialize Prisma
+bash
+Copy
+Edit
+npx prisma generate
+npx prisma db push
+🌱 Seeding the Database
+Run this to insert 2 users, each with 2 projects and each project with 3 tasks:
+
+bash
+Copy
+Edit
+npx tsx prisma/seed.ts
+Seeded Users:
+Email	Password
+test@example.com	Test@123
+user2@example.com	Test@123
+
+🧪 Run the Application
+Start the development server:
+
+bash
+Copy
+Edit
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Then open your browser to:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+arduino
+Copy
+Edit
+http://localhost:3000
+📌 Known Limitations
+No password reset functionality
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+No role-based access (admin/user separation)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Tasks are not real-time synced across devices
 
-## Learn More
+Minimal input validation on forms
 
-To learn more about Next.js, take a look at the following resources:
+Basic error handling only
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🔧 Improvements (To-do)
+Toast notifications
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Pagination for long lists
 
-## Deploy on Vercel
+Real-time task updates (e.g., with socket.io)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Mobile-first design enhancements
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Admin dashboard
+
+📁 Folder Structure
+bash
+Copy
+Edit
+/app
+  /api
+    /auth
+    /projects
+    /tasks
+  /components
+  /project/[id]
+  /dashboard
+/prisma
+  schema.prisma
+  seed.ts
+🤝 Contributing
+If you find a bug or have suggestions, feel free to open an issue or fork and submit a PR.
+
+
