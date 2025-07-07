@@ -49,7 +49,7 @@ cd sofrik-task-app
 ```bash
 npm install
 ```
-###3. Configure Environment Variables
+### 3. Configure Environment Variables
 Create a .env file in the root folder:
 ```bash
 
@@ -57,7 +57,7 @@ DATABASE_URL="mongodb+srv://<username>:<password>@cluster.mongodb.net/project-ma
 JWT_SECRET="your-super-secret-key"
 Replace with your actual MongoDB credentials.
 ```
-###4. Initialize Prisma
+### 4. Initialize Prisma
 ```bash
 
 npx prisma generate
@@ -70,19 +70,19 @@ Run this to insert 2 users, each with 2 projects and each project with 3 tasks:
 
 npx tsx prisma/seed.ts
 ```
-##Seeded Users:
+Seeded Users:
 Email	Password
-test@example.com	Test@123
-user2@example.com	Test@123
+user1@gmail.com	User1@123
+user2@gmail.com	User2@123
 ---
-###🧪 Run the Application
+🧪 Run the Application
 Start the development server:
 
 ```bash
 
 npm run dev
 ```
-###Then open your browser to:
+Then open your browser to:
 
 http://localhost:3000
 📌 Known Limitations
